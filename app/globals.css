@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Rubik:300,400,800&display=swap");
+
+body {
+  color: rgb(166, 170, 178);
+  background-color: rgb(30 41 59);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Rubik";
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  box-shadow: 0 0 0 1000px rgb(51 65 85) inset;
+  -webkit-text-fill-color: rgb(138, 144, 158); /* Black text color */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
