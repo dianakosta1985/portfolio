@@ -22,6 +22,8 @@ Welcome to my portfolio!
 ## Technologies
 
 - **Framework**: Next.js, Express
+- **ORM**: sequelize
+- **SQL**: SQLite,
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Deployment**: Vercel
