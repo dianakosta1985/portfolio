@@ -21,10 +21,10 @@
     }
   ],
   "env": {
-    "API_URL": "http://127.0.0.1:3001", 
-    "ANOTHER_ENV_VAR": "value" 
+    "API_URL": "https://portfolio-git-main-dianakosta1985s-projects.vercel.app",
+    "ANOTHER_ENV_VAR": "value"
   },
   "github": {
-    "silent": true 
+    "silent": true
   }
 }
