@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/Users/dianakosta/work/portfolio/sever/node_modules/
 /.pnp
 .pnp.js
 .yarn/install-state.gz
