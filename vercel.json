@@ -21,10 +21,10 @@
     }
   ],
   "env": {
-    "API_URL": "/api", // Example of an environment variable for the frontend to access the API
-    "ANOTHER_ENV_VAR": "value" // Add any other environment variables needed
+    "API_URL": "/api", 
+    "ANOTHER_ENV_VAR": "value" 
   },
   "github": {
-    "silent": true // Prevents Vercel from commenting on GitHub PRs
+    "silent": true 
   }
 }
