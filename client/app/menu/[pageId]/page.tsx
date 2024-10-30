@@ -2,9 +2,11 @@ import { menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
 //import useStore from "@/utils/store";
+const apiUrl = process.env.API_URL;
 
 export const generateStaticParams = async () => {
-  const response = await fetch("http://localhost:3001/pages");
+  const apiUrl = process.env.API_URL;
+  const response = await fetch(`${apiUrl}/pages`);
   const pages = await response.json();
 
   return pages.map((page: PageProps) => ({
@@ -29,7 +31,7 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const { pageId } = params;
-  const response = await fetch(`http://localhost:3001/pages/${pageId}`);
+  const response = await fetch(`${apiUrl}/pages/${pageId}`);
   const pageData = await response.json();
 
   if (!pageData) {
