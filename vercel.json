@@ -21,7 +21,7 @@
     }
   ],
   "env": {
-    "API_URL": "/api", 
+    "API_URL": "http://localhost:3001/", 
     "ANOTHER_ENV_VAR": "value" 
   },
   "github": {
