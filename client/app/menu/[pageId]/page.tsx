@@ -1,7 +1,7 @@
 import { menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.API_URL || "https://server-lac-two.vercel.app";
 
 export const generateStaticParams = async () => {
   const apiUrl = process.env.API_URL;
