@@ -5,6 +5,7 @@ const apiUrl = process.env.API_URL;
 
 export const generateStaticParams = async () => {
   const apiUrl = process.env.API_URL;
+  console.log(apiUrl);
   console.log(process.env.API_URL);
   const response = await fetch(`https://server-lac-two.vercel.app/pages`);
   const pages = await response.json();
