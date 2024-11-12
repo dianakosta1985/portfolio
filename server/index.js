@@ -1,26 +1,17 @@
 const express = require("express");
-//const sequelize = require("./db/database");
-//const PageData = require("./Models/Page");
 const cors = require("cors");
 require("dotenv").config();
 const client = require("./db/database");
-
-// Create a PostgreSQL client instance
-
-// sequelize.sync().then(() => {
-//   console.log("db is ready");
-// });
-
+await client.end();
 const app = express();
 
 require("dotenv").config();
 
 app.use(express.json());
 
-// // Enable CORS for specific origin
 app.use(
   cors({
-    origin: "http://localhost:5000", // Allow requests from Next.js app
+    origin: "portfolio-roan-two-48.vercel.app", // Allow requests from Next.js app
     method: ["POST", "GET"],
     credentials: true,
   })
