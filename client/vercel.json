@@ -1,0 +1,29 @@
+{
+  "version": 2,
+
+  "builds": [
+    {
+      "src": "./package.json",
+
+      "use": "@vercel/next"
+    }
+  ],
+
+  "routes": [
+    {
+      "src": "/(.*)",
+
+      "dest": "/$1"
+    }
+  ],
+
+  "env": {
+    "API_URL": "https://server-lac-two.vercel.app/",
+
+    "ANOTHER_ENV_VAR": "value"
+  },
+
+  "github": {
+    "silent": true
+  }
+}
