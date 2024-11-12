@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const client = require("./db/database");
-await client.end();
+const { createDbClient, closeDbClient } = require("./db/database");
 const app = express();
 
 require("dotenv").config();
@@ -23,24 +22,22 @@ app.get("/", async (req, res) => {
 
 app.get("/pages", async (req, res) => {
   try {
-    await client.connect();
-    const result = await client.query("SELECT * FROM pages");
+    const dbClient = await createDbClient();
+    const result = await dbClient.query("SELECT * FROM pages");
     res.send(result.rows);
   } catch (error) {
     console.error("Error fetching page data:", error);
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
-  } finally {
-    await client.end();
   }
 });
 
 app.get("/pages/:pageId", async (req, res) => {
   try {
-    await client.connect();
+    const dbClient = await createDbClient();
     const { pageId } = req.params;
-    const pageData = await client.query("SELECT * FROM pages WHERE id = $1", [
+    const pageData = await dbClient.query("SELECT * FROM pages WHERE id = $1", [
       pageId,
     ]);
 
@@ -54,16 +51,14 @@ app.get("/pages/:pageId", async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
-  } finally {
-    await client.end();
   }
 });
 
 app.post("/pages", async (req, res) => {
   try {
-    await client.connect();
+    const dbClient = await createDbClient();
     const { id, title, subTitle, description } = req.body;
-    await client.query(
+    await dbClient.query(
       "INSERT INTO pages (id, title, subTitle, description) VALUES ($1, $2, $3, $4)",
       [id, title, subTitle, description]
     );
@@ -73,9 +68,14 @@ app.post("/pages", async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
-  } finally {
-    await client.end();
   }
+});
+
+// Close database connection gracefully when shutting down
+process.on("SIGINT", async () => {
+  console.log("Shutting down server...");
+  await closeDbClient();
+  process.exit();
 });
 
 app.listen(process.env.PORT, () => {
