@@ -1,17 +1,20 @@
 const express = require("express");
-const sequelize = require("./db/database");
-const PageData = require("./Models/Page");
+//const sequelize = require("./db/database");
+//const PageData = require("./Models/Page");
 const cors = require("cors");
+const sql = require("./db/database");
 
-sequelize.sync().then(() => {
-  console.log("db is ready");
-});
+// sequelize.sync().then(() => {
+//   console.log("db is ready");
+// });
 
 const app = express();
 
+require("dotenv").config();
+
 app.use(express.json());
 
-// Enable CORS for specific origin
+// // Enable CORS for specific origin
 app.use(
   cors({
     origin: "http://localhost:5000", // Allow requests from Next.js app
@@ -26,8 +29,10 @@ app.get("/", async (req, res) => {
 
 app.get("/pages", async (req, res) => {
   try {
-    const pageData = await PageData.findAll();
-    res.send(pageData);
+    console.log("here!!!");
+    const res = await sql.query("SELECT * FROM pages");
+    console.log("Result rows:", res.rows);
+    res.send(res.rows);
   } catch (error) {
     console.error("Error fetching page data:", error);
     res
@@ -38,9 +43,9 @@ app.get("/pages", async (req, res) => {
 
 app.get("/pages/:pageId", async (req, res) => {
   try {
-    const pageData = await PageData.findOne({
-      where: { id: req.params.pageId },
-    });
+    const pageData = await sql.query("SELECT * FROM pages WHERE id = $1", [
+      pageId,
+    ]);
 
     if (pageData) {
       res.send(pageData);
@@ -57,7 +62,10 @@ app.get("/pages/:pageId", async (req, res) => {
 
 app.post("/pages", async (req, res) => {
   try {
-    await PageData.create(req.body);
+    await sql.query(
+      "INSERT INTO pages (id, title, subTitle, description) VALUES ($1, $2, $3, $4)",
+      [id, title, subTitle, description]
+    );
     res.send("pages are created");
   } catch (error) {
     console.error("Error fetching page data:", error);
@@ -67,6 +75,6 @@ app.post("/pages", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is listning at port 5000`);
 });

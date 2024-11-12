@@ -1,7 +1,6 @@
 import { menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
-//import useStore from "@/utils/store";
 const apiUrl = process.env.API_URL;
 
 export const generateStaticParams = async () => {
@@ -13,17 +12,6 @@ export const generateStaticParams = async () => {
     page: page.id,
   }));
 };
-
-// export async function getStaticProps({ params }: any) {
-//   const response = await fetch(`http://localhost:3001/pages/${params.id}`);
-//   const page = await response.json();
-
-//   return {
-//     props: {
-//       pageData: page, // Pass the entire post object to the component
-//     },
-//   };
-// }
 
 type Props = {
   params: { pageId: string };

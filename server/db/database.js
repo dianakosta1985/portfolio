@@ -1,8 +1,6 @@
-const { Sequelize } = require("sequelize");
+const { createClient } = require("@vercel/postgres");
+require("dotenv").config();
 
-const sequelize = new Sequelize("portfolio-db", "user", "pass", {
-  dialect: "sqlite",
-  host: "./dev.sqlite",
-});
+const sql = createClient();
 
-module.exports = sequelize;
+module.exports = sql;
