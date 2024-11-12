@@ -5,6 +5,7 @@ const apiUrl = process.env.API_URL;
 
 export const generateStaticParams = async () => {
   const apiUrl = process.env.API_URL;
+  console.log(process.env.API_URL);
   const response = await fetch(`${apiUrl}/pages`);
   const pages = await response.json();
 
