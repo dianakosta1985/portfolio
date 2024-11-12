@@ -34,8 +34,7 @@ const Page = async ({ params }: Props) => {
   return (
     <div>
       {menuItems.map(
-        (item, i) =>
-          pageId === item.val && <item.comp key={i} {...pageData[0]} />
+        (item, i) => pageId === item.val && <item.comp key={i} {...pageData} />
       )}
     </div>
   );
