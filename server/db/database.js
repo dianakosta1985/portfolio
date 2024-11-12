@@ -1,6 +1,6 @@
 const { createClient } = require("@vercel/postgres");
 require("dotenv").config();
 
-const sql = createClient();
+const client = createClient();
 
-module.exports = sql;
+module.exports = client;

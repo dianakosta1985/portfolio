@@ -2,7 +2,10 @@ const express = require("express");
 //const sequelize = require("./db/database");
 //const PageData = require("./Models/Page");
 const cors = require("cors");
-const sql = require("./db/database");
+require("dotenv").config();
+const client = require("./db/database");
+
+// Create a PostgreSQL client instance
 
 // sequelize.sync().then(() => {
 //   console.log("db is ready");
@@ -29,26 +32,29 @@ app.get("/", async (req, res) => {
 
 app.get("/pages", async (req, res) => {
   try {
-    console.log("here!!!");
-    const res = await sql.query("SELECT * FROM pages");
-    console.log("Result rows:", res.rows);
-    res.send(res.rows);
+    await client.connect();
+    const result = await client.query("SELECT * FROM pages");
+    res.send(result.rows);
   } catch (error) {
     console.error("Error fetching page data:", error);
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
+  } finally {
+    await client.end();
   }
 });
 
 app.get("/pages/:pageId", async (req, res) => {
   try {
-    const pageData = await sql.query("SELECT * FROM pages WHERE id = $1", [
+    await client.connect();
+    const { pageId } = req.params;
+    const pageData = await client.query("SELECT * FROM pages WHERE id = $1", [
       pageId,
     ]);
 
     if (pageData) {
-      res.send(pageData);
+      res.send(pageData.rows);
     } else {
       res.status(404).send({ error: "Page not found" });
     }
@@ -57,12 +63,16 @@ app.get("/pages/:pageId", async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
+  } finally {
+    await client.end();
   }
 });
 
 app.post("/pages", async (req, res) => {
   try {
-    await sql.query(
+    await client.connect();
+    const { id, title, subTitle, description } = req.body;
+    await client.query(
       "INSERT INTO pages (id, title, subTitle, description) VALUES ($1, $2, $3, $4)",
       [id, title, subTitle, description]
     );
@@ -72,6 +82,8 @@ app.post("/pages", async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while fetching the page data." });
+  } finally {
+    await client.end();
   }
 });
 
