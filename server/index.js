@@ -42,6 +42,7 @@ app.get("/pages/:pageId", async (req, res) => {
     ]);
 
     if (pageData) {
+      console.log(pageData.rows[0]);
       res.send(pageData.rows[0]);
     } else {
       res.status(404).send({ error: "Page not found" });
