@@ -20,7 +20,9 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const { pageId } = params;
-  const response = await fetch(`${apiUrl}/pages/${pageId}`);
+  const response = await fetch(
+    `https://server-lac-two.vercel.app/pages/${pageId}`
+  );
   const pageData = await response.json();
   console.log(pageData);
 
