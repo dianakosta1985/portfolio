@@ -1,11 +1,10 @@
 import { menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
-const apiUrl = process.env.API_URL || "https://server-lac-two.vercel.app";
 
 export const generateStaticParams = async () => {
   const apiUrl = process.env.API_URL;
-  const response = await fetch(`${apiUrl}/pages`);
+  const response = await fetch(`https://server-lac-two.vercel.app/pages`);
   const pages = await response.json();
 
   return pages.map((page: PageProps) => ({
@@ -19,7 +18,9 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const { pageId } = params;
-  const response = await fetch(`${apiUrl}/pages/${pageId}`);
+  const response = await fetch(
+    `https://server-lac-two.vercel.app/pages/${pageId}`
+  );
   const pageData = await response.json();
   console.log(pageData);
 
