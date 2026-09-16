@@ -12,10 +12,10 @@ const ImageSection = () => {
 
   return (
     <section
-      className="relative w-screen flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center md:w-4/12"
+      className="relative w-screen flex flex-col md:flex-row md:fixed md:right-0 md:top-0 md:h-full items-center justify-center gap-6 md:w-4/12 md:pr-6 lg:pr-8"
       style={{ backgroundColor: "rgb(51 65 85)" }}
     >
-      <AnimatedSection className="flex md:flex-col gap-4  md:mb-0 md:fixed md:right-0 transform md:-translate-y-1/2 md:pr-4 xl:pr-8 2xl:pr-12">
+      <AnimatedSection className="flex flex-row items-center justify-center w-full min-h-[60px] md:w-auto md:min-h-0 md:flex-col gap-4 shrink-0 md:order-2 md:mb-0 md:static md:transform-none md:pr-0">
         {socialItems.map(({ link, icon, type }) => (
           <SocialIcon
             key={link}
@@ -26,7 +26,7 @@ const ImageSection = () => {
           />
         ))}
       </AnimatedSection>
-      <AnimatedSection className="flex flex-col items-center justify-center">
+      <AnimatedSection className="flex flex-col items-center justify-center min-w-0 md:order-1">
         <CV />
       </AnimatedSection>
     </section>

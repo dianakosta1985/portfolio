@@ -15,6 +15,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormInput>();
 
@@ -30,6 +31,10 @@ const ContactForm = () => {
       );
 
       if (response.status === 200) {
+        reset();
+        if (form.current) {
+          form.current.reset();
+        }
         toast.success("Your email was sent to Diana Kosta", {
           icon: "📧",
         });
