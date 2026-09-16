@@ -2,10 +2,7 @@ import { menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
 
-const apiUrl =
-  process.env.LOCAL_API_URL ??
-  process.env.API_URL ??
-  "https://server-lac-two.vercel.app";
+const apiUrl = process.env.LOCAL_API_URL ?? process.env.API_URL;
 
 const fetchPageApi = async (path: string) => {
   const response = await fetch(`${apiUrl}${path}`);
