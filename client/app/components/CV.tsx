@@ -8,7 +8,7 @@ const CV = () => {
           src="/assets/images/cv_img.jpg"
           alt="CV"
           height={400}
-          width={400}
+          width={350}
         />
       </div>
       <button
@@ -16,7 +16,7 @@ const CV = () => {
         className="absolute invisible group-hover:visible top-40 btn bg-blue-400 text-primary-content font-normal hover:bg-blue-400"
       >
         <a
-          href="https://drive.usercontent.google.com/u/0/uc?id=1bCvI4fYsao_HtXGTHQOPkKW2fTOYMK4N&export=download"
+          href="https://drive.usercontent.google.com/u/0/uc?id=1PJ1G_5ifUqXVN0gzmNiq_S3_czqP0CFy&export=download"
           download="CV-PDF-document"
         >
           Download

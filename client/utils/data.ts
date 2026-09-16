@@ -30,7 +30,7 @@ import {
 //     id: "about",
 //     title: "About me",
 //     subTitle: "Full Stack / Frontend Developer",
-//     description: `As a Software Engineer at a SaaS company, I design and develop web applications that enhance operational efficiency and business performance. With over 10 years of experience in web development, I hold a Bachelor’s degree in Computer Engineering with a specialization in Web Application Development. My technical expertise includes JavaScript frameworks and libraries (React, Redux, Node.js, Express, Next.js, Angular), TypeScript, Python, RESTful APIs, MongoDB, MySQL, Salesforce, Azure, containers, and Git. I work closely with project managers, designers, QA teams, and backend engineers to deliver scalable, responsive, and secure solutions. Beyond coding, I emphasize code quality, testing, documentation, and adherence to best practices. Passionate about solving real-world problems,
+//     description: `As a Software Engineer at a SaaS company, I design and develop web applications that enhance operational efficiency and business performance. With over 13 years of experience in web development, I hold a Bachelor’s degree in Computer Engineering with a specialization in Web Application Development. My technical expertise includes JavaScript frameworks and libraries (React, Redux, Node.js, Express, Next.js, Angular), TypeScript, Python, RESTful APIs, MongoDB, MySQL, Salesforce, Azure, containers, and Git. I work closely with project managers, designers, QA teams, and backend engineers to deliver scalable, responsive, and secure solutions. Beyond coding, I emphasize code quality, testing, documentation, and adherence to best practices. Passionate about solving real-world problems,
 //                   I focus on creating innovative, user-friendly applications that improve lives and optimize workflows.`,
 //   },
 //   {
@@ -61,7 +61,7 @@ export const socialItems = [
   },
   { link: "https://github.com/dianakosta1985", icon: "github", type: "fab" },
   {
-    link: "https://drive.usercontent.google.com/u/0/uc?id=1bCvI4fYsao_HtXGTHQOPkKW2fTOYMK4N&export=download",
+    link: "https://drive.usercontent.google.com/u/0/uc?id=1PJ1G_5ifUqXVN0gzmNiq_S3_czqP0CFy&export=download",
     icon: "file",
     type: "fas",
   },

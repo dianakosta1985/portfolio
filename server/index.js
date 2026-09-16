@@ -79,6 +79,11 @@ process.on("SIGINT", async () => {
   process.exit();
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is listning at port 5000`);
-});
+if (require.main === module) {
+  const port = process.env.PORT || 5000;
+  app.listen(port, () => {
+    console.log(`Server is listening at port ${port}`);
+  });
+}
+
+module.exports = app;
