@@ -77,6 +77,12 @@ export const projects = [
     link: "https://tech-gift-picks.vercel.app/",
     description: "",
   },
+  {
+    name: "Admin Dashboard",
+    link: "https://tailadmin-dashboard-two.vercel.app/",
+    description:
+      "React + Tailwind admin dashboard with charts, calendar, forms and tables, built on the open-source TailAdmin template.",
+  },
 ];
 
 export const socialItems = [
