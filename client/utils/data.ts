@@ -2,12 +2,15 @@ import AboutMe from "@/app/components/AboutMe";
 import Contact from "@/app/components/Contact";
 import Hero from "@/app/components/Hero";
 import Game from "@/app/components/game/Game";
+import Work from "@/app/components/Work";
+import { PageProps } from "@/utils/types";
 
 import {
   faHome,
   faUser,
   faEnvelope,
   faGamepad,
+  faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
 
 // export const pages = [
@@ -49,8 +52,31 @@ import {
 export const menuItems = [
   { label: "Home", val: "home", icon: faHome, comp: Hero },
   { label: "About", val: "about", icon: faUser, comp: AboutMe },
+  { label: "Work", val: "work", icon: faBriefcase, comp: Work },
   { label: "Contact", val: "contact", icon: faEnvelope, comp: Contact },
   { label: "Game", val: "game", icon: faGamepad, comp: Game },
+];
+
+// Pages served from the client instead of the pages API
+export const localPages: Record<string, PageProps> = {
+  work: {
+    id: "work",
+    title: "My Work",
+    description: "Some of the projects I've built.",
+  },
+};
+
+export const projects = [
+  {
+    name: "Brinit",
+    link: "https://brinit.diego300.co.il/",
+    description: "",
+  },
+  {
+    name: "Tech Gift Picks",
+    link: "https://tech-gift-picks.vercel.app/",
+    description: "",
+  },
 ];
 
 export const socialItems = [

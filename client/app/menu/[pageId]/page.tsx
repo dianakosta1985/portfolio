@@ -1,4 +1,4 @@
-import { menuItems } from "@/utils/data";
+import { localPages, menuItems } from "@/utils/data";
 import { PageProps } from "@/utils/types";
 import { notFound } from "next/navigation";
 
@@ -17,7 +17,7 @@ const fetchPageApi = async (path: string) => {
 export const generateStaticParams = async () => {
   const pages = await fetchPageApi("/pages");
 
-  return pages.map((page: PageProps) => ({
+  return [...pages, ...Object.values(localPages)].map((page: PageProps) => ({
     pageId: page.id,
   }));
 };
@@ -28,7 +28,8 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const { pageId } = params;
-  const pageData = await fetchPageApi(`/pages/${pageId}`);
+  const pageData =
+    localPages[pageId] ?? (await fetchPageApi(`/pages/${pageId}`));
   console.log(pageData);
 
   if (!pageData) {
