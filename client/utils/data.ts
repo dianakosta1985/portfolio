@@ -1,7 +1,7 @@
 import AboutMe from "@/app/components/AboutMe";
 import Contact from "@/app/components/Contact";
 import Hero from "@/app/components/Hero";
-import Game from "@/app/components/game/Game";
+import Games from "@/app/components/Games";
 import Work from "@/app/components/Work";
 import { PageProps } from "@/utils/types";
 
@@ -54,7 +54,7 @@ export const menuItems = [
   { label: "About", val: "about", icon: faUser, comp: AboutMe },
   { label: "Work", val: "work", icon: faBriefcase, comp: Work },
   { label: "Contact", val: "contact", icon: faEnvelope, comp: Contact },
-  { label: "Game", val: "game", icon: faGamepad, comp: Game },
+  { label: "Games", val: "game", icon: faGamepad, comp: Games },
 ];
 
 // Pages served from the client instead of the pages API
@@ -62,7 +62,12 @@ export const localPages: Record<string, PageProps> = {
   work: {
     id: "work",
     title: "My Work",
-    description: "Some of the projects I've built.",
+    description: "A few things I've built lately. Click a title to check it out."
+  },
+  game: {
+    id: "game",
+    title: "Let's play",
+    description: "Need a quick break? I built these little games. Pick one and play!"
   },
 };
 
@@ -98,24 +103,3 @@ export const socialItems = [
     type: "fas",
   },
 ];
-
-export const cards = [
-  { id: 1, name: "next", image: "/assets/images/nextjs.svg" },
-  { id: 2, name: "next", image: "/assets/images/nextjs.svg" },
-  { id: 3, name: "angular", image: "/assets/images/angular.svg" },
-  { id: 4, name: "angular", image: "/assets/images/angular.svg" },
-  { id: 5, name: "python", image: "/assets/images/python.svg" },
-  { id: 6, name: "python", image: "/assets/images/python.svg" },
-  { id: 7, name: "node", image: "/assets/images/nodejs.svg" },
-  { id: 8, name: "node", image: "/assets/images/nodejs.svg" },
-  { id: 9, name: "ts", image: "/assets/images/ts.svg" },
-  { id: 10, name: "ts", image: "/assets/images/ts.svg" },
-  { id: 11, name: "react", image: "/assets/images/react.svg" },
-  { id: 12, name: "react", image: "/assets/images/react.svg" },
-];
-
-export const cardsData = cards.map((card) => ({
-  ...card,
-  order: Math.floor(Math.random() * 12),
-  isFlipped: false,
-}));

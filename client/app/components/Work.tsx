@@ -19,17 +19,19 @@ const Work = (props: PageProps) => {
       <p className="text-lg md:text-xl font-light mb-8">{description}</p>
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map(({ name, link, description }) => (
-          <a
-            key={link}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-lg border border-slate-700 p-6 transition-transform hover:scale-105 hover:border-blue-400"
-          >
-            <h2 className="text-2xl font-medium mb-2">{name}</h2>
-            {description && <p className="font-light mb-4">{description}</p>}
-            <span className="text-blue-400 break-all">{link}</span>
-          </a>
+          <div key={link} className="rounded-lg border border-slate-700 p-6">
+            <h2 className="text-2xl font-medium mb-2">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 hover:underline"
+              >
+                {name} ↗
+              </a>
+            </h2>
+            {description && <p className="font-light">{description}</p>}
+          </div>
         ))}
       </div>
     </AnimatedSection>

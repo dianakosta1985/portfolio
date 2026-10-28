@@ -33,7 +33,6 @@ const Page = async ({ params }: Props) => {
   const { pageId } = params;
   const pageData =
     localPages[pageId] ?? (await fetchPageApi(`/pages/${pageId}`));
-  console.log(pageData);
 
   if (!pageData) {
     notFound();
@@ -42,7 +41,11 @@ const Page = async ({ params }: Props) => {
   return (
     <div>
       {menuItems.map(
-        (item, i) => pageId === item.val && <item.comp key={i} {...pageData} />
+        (item, i) => pageId === item.val && <item.comp
+              key={i}
+              {...pageData}
+              subTitle={pageData.subTitle ?? pageData.subtitle}
+            />
       )}
     </div>
   );

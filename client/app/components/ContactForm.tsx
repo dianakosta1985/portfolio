@@ -35,17 +35,17 @@ const ContactForm = () => {
         if (form.current) {
           form.current.reset();
         }
-        toast.success("Your email was sent to Diana Kosta", {
+        toast.success("Thanks for reaching out! I'll get back to you soon.", {
           icon: "📧",
         });
       } else {
-        toast.error("An error occurred while sending the email", {
+        toast.error("Oops, your message didn't go through. Please try again.", {
           icon: "❌",
         });
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred while sending the email");
+      alert("Oops, your message didn't go through. Please try again.");
     }
   };
 
@@ -62,7 +62,7 @@ const ContactForm = () => {
             className="grow input-primary"
             placeholder="Full Name"
             id="name"
-            {...register("name", { required: "Name is required" })}
+            {...register("name", { required: "Please tell me your name" })}
           />
           <MdFace />
         </label>
@@ -77,10 +77,10 @@ const ContactForm = () => {
             placeholder="Email"
             id="email"
             {...register("email", {
-              required: "Email is required",
+              required: "I'll need your email to reply",
               pattern: {
                 value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                message: "Invalid email address",
+                message: "That email doesn't look quite right",
               },
             })}
           />
@@ -94,7 +94,7 @@ const ContactForm = () => {
           className="textarea bg-slate-700 inpur"
           placeholder="Message"
           id="message"
-          {...register("message", { required: "Message is required" })}
+          {...register("message", { required: "Don't forget your message" })}
         ></textarea>
         {errors.message && (
           <span className="text-red-500 text-sm">{errors.message.message}</span>

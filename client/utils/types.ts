@@ -2,14 +2,7 @@ export interface PageProps {
   id: string;
   title: string;
   subTitle?: string;
+  // Postgres returns the column lowercased
+  subtitle?: string;
   description: string;
-}
-
-export interface CardProps {
-  id: number;
-  name: string;
-  passed: boolean;
-  isFlipped: boolean;
-  order: string;
-  image: string;
 }
