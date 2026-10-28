@@ -79,9 +79,9 @@ export const projects = [
   },
   {
     name: "DK Admin",
-    link: "https://tailadmin-dashboard-two.vercel.app/",
+    link: "https://dk-admin-dashboard.vercel.app/",
     description:
-      "React + TypeScript + Tailwind store dashboard with sales charts, schedule, team directory and dark mode. Custom theme and data on top of the open-source TailAdmin template.",
+      "Store admin dashboard in React, TypeScript and Tailwind: sales charts, goal tracking, schedule, team directory, custom purple theme and dark mode.",
   },
 ];
 
